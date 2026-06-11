@@ -3,777 +3,504 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Jan Tommy Zonneveld</title>
+    <title>Jan Tommy Zonneveld — IT Operations & Cloud Engineer</title>
+    <meta name="description" content="Portfolio of Jan Tommy Gustavsen Zonneveld — IT operations and cloud engineer from Norway. Azure, Microsoft 365, PowerShell automation and applied AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🤖</text></svg>">
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
 
-    <!-- Particle Background -->
     <canvas id="particles"></canvas>
+    <div class="cursor-glow" id="cursorGlow"></div>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-logo">
-            <span class="logo-text">&lt;Jan Tommy Zonneveld/&gt;</span>
-        </div>
-        <div class="nav-links">
-            <a href="#home" class="nav-link active" data-text="Home">Home</a>
-            <a href="#about" class="nav-link" data-text="About">About</a>
-            <a href="#projects" class="nav-link" data-text="Projects">Projects</a>
-            <a href="#skills" class="nav-link" data-text="Skills">Skills</a>
-            <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
-        </div>
-        <div class="nav-hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+    <!-- ============ NAV ============ -->
+    <nav class="nav" id="nav">
+        <a href="#home" class="nav-logo mono">&lt;JanTommy<span class="accent">/</span>&gt;</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#lab" class="nav-link">Lab</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#certs" class="nav-link">Certs</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="nav-burger" id="navBurger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <a href="#home" class="mobile-link">Home</a>
-        <a href="#about" class="mobile-link">About</a>
-        <a href="#projects" class="mobile-link">Projects</a>
-        <a href="#skills" class="mobile-link">Skills</a>
-        <a href="#contact" class="mobile-link">Contact</a>
-    </div>
+    <!-- ============ HERO ============ -->
+    <header class="hero section" id="home">
+        <div class="hero-grid">
+            <div class="hero-text">
+                <div class="badge reveal">
+                    <span class="badge-dot"></span> Open to IT / cloud opportunities
+                </div>
+                <h1 class="hero-title reveal">
+                    IT Operations<br>
+                    <span class="gradient-text">&amp; Cloud</span>
+                </h1>
+                <p class="hero-sub reveal">
+                    I'm an IT operations and cloud engineer from Norway, working daily with
+                    Microsoft&nbsp;365, Entra&nbsp;ID, Azure and automation — and increasingly with AI,
+                    building secure Azure OpenAI solutions that make support and operations smarter.
+                </p>
+                <div class="hero-cta reveal">
+                    <a href="#projects" class="btn btn-primary">View Featured Projects</a>
+                    <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+                </div>
+                <div class="hero-stats reveal">
+                    <div class="stat">
+                        <span class="stat-number mono" data-count="15">0</span>
+                        <span class="stat-label">Automation / IaC projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number mono" data-count="10">0</span>
+                        <span class="stat-label">Years in IT roles</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number mono" data-count="20">0</span>
+                        <span class="stat-label">Certs &amp; courses</span>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span class="badge-dot"></span>
-                Open to IT / cloud opportunities
-            </div>
-            <h1 class="hero-title">
-                <span class="title-line">
-                    <span class="word">IT</span>
-                </span>
-                <span class="title-line">
-                    <span class="word">Operations</span>
-                    <span class="word outline">&</span>
-                </span>
-                <span class="title-line">
-                    <span class="word gradient">Cloud</span>
-                </span>
-            </h1>
-            <p class="hero-description">
-                I am an IT operations and cloud engineer from Norway,
-                working daily with Microsoft 365, Entra ID, Azure and
-                automation. I focus on stable, secure platforms and
-                practical use of AI to improve support and operations.
-            </p>
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">
-                    <span>View Featured Projects</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <span>Get in Touch</span>
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number" data-count="15">0</span>
-                    <span class="stat-label">Automation / IaC projects</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-count="10">0</span>
-                    <span class="stat-label">Years in IT roles</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-count="20">0</span>
-                    <span class="stat-label">Certs & courses</span>
-                </div>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="hero-image-container">
-                <div class="hero-image-glow"></div>
-                <img src="https://avatars.githubusercontent.com/u/110933260?v=4" alt="Portrait of Jan Tommy Gustavsen Zonneveld" class="hero-image">
-                <div class="floating-card card-1">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
-                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
-                        </svg>
+            <div class="hero-visual">
+                <!-- Robot mascot — click him! -->
+                <div class="mascot" id="mascot" title="Click me!">
+                    <div class="speech" id="mascotSpeech">Hei! I'm Bit. I live here. 👋</div>
+                    <div class="antenna"><div class="antenna-ball"></div></div>
+                    <div class="bot-head">
+                        <div class="eye"><div class="pupil"></div></div>
+                        <div class="eye"><div class="pupil"></div></div>
+                        <div class="bot-mouth" id="botMouth"></div>
                     </div>
-                    <span>Microsoft 365 & Azure</span>
-                </div>
-                <div class="floating-card card-2">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
+                    <div class="bot-body">
+                        <div class="bot-lights">
+                            <span class="bot-light l1"></span>
+                            <span class="bot-light l2"></span>
+                            <span class="bot-light l3"></span>
+                        </div>
                     </div>
-                    <span>PowerShell automation</span>
+                    <div class="bot-shadow"></div>
                 </div>
-                <div class="floating-card card-3">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <span>Security & AI</span>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <span>Scroll Down</span>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="section-header">
-            <span class="section-tag">&lt;about&gt;</span>
-            <h2 class="section-title">
-                Building Reliable
-                <span class="highlight">IT Platforms</span>
+                <!-- Terminal window -->
+                <div class="terminal reveal">
+                    <div class="terminal-bar">
+                        <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+                        <span class="terminal-title mono">jantommy@cloud:~</span>
+                    </div>
+                    <div class="terminal-body mono" id="terminalBody"></div>
+                </div>
+            </div>
+        </div>
+        <a href="#about" class="scroll-hint mono">scroll_down() <span class="scroll-arrow">▾</span></a>
+    </header>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+        <div class="section-head reveal">
+            <span class="section-tag mono">&lt;about&gt;</span>
+            <h2>Building Reliable <span class="gradient-text">IT Platforms</span>
+                <span class="googly" aria-hidden="true"><span class="g-eye"><span class="pupil"></span></span><span class="g-eye"><span class="pupil"></span></span></span>
             </h2>
         </div>
-        <div class="about-content">
-            <div class="about-image">
-                <div class="image-frame">
-                    <img src="https://avatars.githubusercontent.com/u/110933260?v=4" alt="About Jan Tommy">
-                    <div class="frame-decoration"></div>
-                </div>
-                <div class="experience-badge">
-                    <span class="exp-number">10+</span>
-                    <span class="exp-text">Years in<br>IT & support</span>
-                </div>
-            </div>
-            <div class="about-text">
-                <p class="about-intro">
-                    Hi, I'm <span class="text-gradient">Jan Tommy Gustavsen Zonneveld</span>,
-                    an IT operations specialist and cloud enthusiast from Norway.
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <p>
+                    Hi, I'm <strong>Jan Tommy Gustavsen Zonneveld</strong>, an IT operations specialist
+                    and cloud enthusiast from Norway. I work in IKT Agder with Microsoft 365 platforms
+                    and user support for several municipalities. These days a large part of my time
+                    goes into <strong>building AI solutions on Azure OpenAI</strong> — retrieval-augmented
+                    generation with Azure AI Search, security trimming through Entra ID groups, and
+                    infrastructure managed end-to-end with Terraform.
                 </p>
-                <p class="about-description">
-                    I work in IKT Agder with user support and Microsoft 365 platforms
-                    for several municipalities. My daily work includes troubleshooting,
-                    identity and access management in Entra ID, and close collaboration
-                    with operations and platform teams to keep services stable and secure.
+                <p>
+                    I have a higher vocational degree in IT operations (120 ECTS, level 5.2) with top
+                    grades (A) in all programming subjects, PowerShell automation, Linux, Microsoft 365
+                    and ethical hacking. I care about doing AI right: grounded answers with source
+                    citations, evaluation sets and red-teaming before production, and governance and
+                    privacy before technology — especially in the public sector.
                 </p>
-                <p class="about-description">
-                    I have a higher vocational degree in IT operations (120 ECTS,
-                    level 5.2) with top grades in Microsoft 365, Linux, automation
-                    with PowerShell, Infrastructure as Code, security and ethical
-                    hacking. I enjoy automating repetitive work, improving
-                    documentation, and using AI assistants and Azure AI Search to
-                    make knowledge easier to find.
-                </p>
-                <p class="about-description">
-                    Over the years I have also worked as a teacher assistant in
-                    Infrastructure as Code, fiber technician, PC/mobile repair
-                    technician and B2B advisor. This gives me a strong practical
-                    understanding, good communication skills and the ability to
+                <p>
+                    Over the years I have also worked as a teacher assistant in Infrastructure as Code,
+                    fiber technician, PC/mobile repair technician and B2B advisor. This gives me a
+                    strong practical understanding, good communication skills and the ability to
                     explain complex technical topics in a simple way.
                 </p>
-                <div class="about-info">
-                    <div class="info-item">
-                        <span class="info-label">Name</span>
-                        <span class="info-value">Jan Tommy Gustavsen Zonneveld</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Email</span>
-                        <span class="info-value">jan_tommy_g@hotmail.com</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Location</span>
-                        <span class="info-value">Arendal, Norway</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Availability</span>
-                        <span class="info-value available">Open to opportunities</span>
-                    </div>
+            </div>
+            <div class="about-card reveal" id="aboutCard">
+                <!-- blob buddy peeking over the card -->
+                <div class="blob-buddy" aria-hidden="true">
+                    <div class="g-eye"><span class="pupil"></span></div>
+                    <div class="g-eye"><span class="pupil"></span></div>
                 </div>
-                <a href="#contact" class="btn btn-primary">
-                    <span>Let's Connect</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
+                <dl class="info-list mono">
+                    <div><dt>name</dt><dd>Jan Tommy G. Zonneveld</dd></div>
+                    <div><dt>email</dt><dd><a href="mailto:jan_tommy_g@hotmail.com">jan_tommy_g@hotmail.com</a></dd></div>
+                    <div><dt>location</dt><dd>Arendal, Norway 🇳🇴</dd></div>
+                    <div><dt>status</dt><dd><span class="status-ok">● open_to_opportunities</span></dd></div>
+                    <div><dt>uptime</dt><dd>10+ years in IT &amp; support</dd></div>
+                </dl>
+                <a href="#contact" class="btn btn-primary btn-block">Let's Connect</a>
             </div>
         </div>
-        <span class="section-tag closing">&lt;/about&gt;</span>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="section-header">
-            <span class="section-tag">&lt;projects&gt;</span>
-            <h2 class="section-title">
-                Real-World
-                <span class="highlight">Automation & Cloud</span>
-            </h2>
-            <p class="section-description">
-                Selected projects from my GitHub that demonstrate practical use of
-                Infrastructure as Code, Microsoft 365 automation and applied
-                machine learning in IT operations.
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+        <div class="section-head reveal">
+            <span class="section-tag mono">&lt;projects&gt;</span>
+            <h2>Real-World <span class="gradient-text">Automation &amp; Cloud</span></h2>
+            <p class="section-sub">
+                Selected projects from my GitHub that demonstrate practical use of Infrastructure as
+                Code, Microsoft 365 automation and applied machine learning in IT operations.
+                <em>(The cards are watching you. Don't be alarmed.)</em>
             </p>
-        </div>
-        <div class="projects-filter">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="cloud">Cloud & IaC</button>
-            <button class="filter-btn" data-filter="automation">Automation</button>
-            <button class="filter-btn" data-filter="ai-ml">AI & ML</button>
         </div>
         <div class="projects-grid">
-            <!-- Azure AI Terraform Demo -->
-            <article class="project-card" data-category="cloud">
-                <div class="project-image">
-                    <img src="https://picsum.photos/800/600?random=3" alt="Azure AI Terraform Demo">
-                    <div class="project-overlay">
-                        <a href="https://github.com/jtg86/azure-ai-terraform-demo" class="project-link" target="_blank" rel="noreferrer">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M18 13V19C18 20.1046 17.1046 21 16 21H5C3.89543 21 3 20.1046 3 19V8C3 6.89543 3.89543 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/jtg86/azure-ai-terraform-demo#readme" class="project-link" target="_blank" rel="noreferrer">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M9 19C9 19 4 14.5 4 9.5C4 7.76 5.24 6.25 7 5.75V5.75C8.76 5.25 10 3.75 10 2V2C10 3.75 11.24 5.25 13 5.75V5.75C14.76 6.25 16 7.76 16 9.5C16 14.5 11 19 11 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <div class="project-tags">
-                        <span class="tag">Terraform</span>
-                        <span class="tag">Azure</span>
-                        <span class="tag">GitHub Actions</span>
-                    </div>
-                    <h3 class="project-title">Azure AI Terraform Demo</h3>
-                    <p class="project-description">
-                        Production-style Terraform reference implementation for deploying an Azure
-                        OpenAI-backed API with App Service, Key Vault and monitoring,
-                        following Infrastructure as Code best practices.
-                    </p>
+            <article class="project-card tilt reveal">
+                <div class="card-eyes" aria-hidden="true"><span class="g-eye sm"><span class="pupil"></span></span><span class="g-eye sm"><span class="pupil"></span></span></div>
+                <div class="project-icon mono">tf</div>
+                <div class="project-tags mono"><span>Terraform</span><span>Azure</span><span>GitHub Actions</span></div>
+                <h3>Azure AI Terraform Demo</h3>
+                <p>Production-style Terraform reference implementation for deploying an Azure
+                   OpenAI-backed API with App Service, Key Vault and monitoring, following
+                   Infrastructure as Code best practices.</p>
+                <div class="project-links mono">
+                    <a href="https://github.com/jtg86/azure-ai-terraform-demo" target="_blank" rel="noreferrer">code ↗</a>
+                    <a href="https://github.com/jtg86/azure-ai-terraform-demo#readme" target="_blank" rel="noreferrer">readme ↗</a>
                 </div>
             </article>
 
-            <!-- M365 Admin Tool -->
-            <article class="project-card" data-category="automation">
-                <div class="project-image">
-                    <img src="https://picsum.photos/800/600?random=4" alt="M365 Admin Tool">
-                    <div class="project-overlay">
-                        <a href="https://github.com/jtg86/365SharedMailandDistributionGroupsTool" class="project-link" target="_blank" rel="noreferrer">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M18 13V19C18 20.1046 17.1046 21 16 21H5C3.89543 21 3 20.1046 3 19V8C3 6.89543 3.89543 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/jtg86/365SharedMailandDistributionGroupsTool#readme" class="project-link" target="_blank" rel="noreferrer">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M9 19C9 19 4 14.5 4 9.5C4 7.76 5.24 6.25 7 5.75V5.75C8.76 5.25 10 3.75 10 2V2C10 3.75 11.24 5.25 13 5.75V5.75C14.76 6.25 16 7.76 16 9.5C16 14.5 11 19 11 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <div class="project-tags">
-                        <span class="tag">PowerShell</span>
-                        <span class="tag">Microsoft Graph</span>
-                        <span class="tag">Exchange Online</span>
-                    </div>
-                    <h3 class="project-title">M365 Admin Tool</h3>
-                    <p class="project-description">
-                        Desktop GUI tool built with PowerShell 7 and WPF for managing
-                        shared mailboxes and distribution groups in Microsoft 365 /
-                        Exchange Online, tailored for day-to-day IT operations.
-                    </p>
+            <article class="project-card tilt reveal">
+                <div class="card-eyes" aria-hidden="true"><span class="g-eye sm"><span class="pupil"></span></span><span class="g-eye sm"><span class="pupil"></span></span></div>
+                <div class="project-icon mono">ps</div>
+                <div class="project-tags mono"><span>PowerShell</span><span>Microsoft Graph</span><span>Exchange Online</span></div>
+                <h3>M365 Admin Tool</h3>
+                <p>Desktop GUI tool built with PowerShell 7 and WPF for managing shared mailboxes
+                   and distribution groups in Microsoft 365 / Exchange Online, tailored for
+                   day-to-day IT operations.</p>
+                <div class="project-links mono">
+                    <a href="https://github.com/jtg86/365SharedMailandDistributionGroupsTool" target="_blank" rel="noreferrer">code ↗</a>
+                    <a href="https://github.com/jtg86/365SharedMailandDistributionGroupsTool#readme" target="_blank" rel="noreferrer">readme ↗</a>
                 </div>
             </article>
 
-            <!-- Ticket AI Classifier -->
-            <article class="project-card" data-category="ai-ml">
-                <div class="project-image">
-                    <img src="https://picsum.photos/800/600?random=5" alt="Ticket AI Classifier">
-                    <div class="project-overlay">
-                        <a href="https://github.com/jtg86/ticket-ai-classifier" class="project-link" target="_blank" rel="noreferrer">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M18 13V19C18 20.1046 17.1046 21 16 21H5C3.89543 21 3 20.1046 3 19V8C3 6.89543 3.89543 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/jtg86/ticket-ai-classifier#readme" class="project-link" target="_blank" rel="noreferrer">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M9 19C9 19 4 14.5 4 9.5C4 7.76 5.24 6.25 7 5.75V5.75C8.76 5.25 10 3.75 10 2V2C10 3.75 11.24 5.25 13 5.75V5.75C14.76 6.25 16 7.76 16 9.5C16 14.5 11 19 11 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">scikit-learn</span>
-                        <span class="tag">NLP</span>
-                    </div>
-                    <h3 class="project-title">Ticket AI Classifier</h3>
-                    <p class="project-description">
-                        Machine learning model for automatic classification and routing
-                        of IT support tickets, helping service desks reduce manual
-                        triage and improve response time.
-                    </p>
+            <article class="project-card tilt reveal">
+                <div class="card-eyes" aria-hidden="true"><span class="g-eye sm"><span class="pupil"></span></span><span class="g-eye sm"><span class="pupil"></span></span></div>
+                <div class="project-icon mono">ai</div>
+                <div class="project-tags mono"><span>Python</span><span>scikit-learn</span><span>NLP</span></div>
+                <h3>Ticket AI Classifier</h3>
+                <p>Machine learning model for automatic classification and routing of IT support
+                   tickets, helping service desks reduce manual triage and improve response time.</p>
+                <div class="project-links mono">
+                    <a href="https://github.com/jtg86/ticket-ai-classifier" target="_blank" rel="noreferrer">code ↗</a>
+                    <a href="https://github.com/jtg86/ticket-ai-classifier#readme" target="_blank" rel="noreferrer">readme ↗</a>
                 </div>
             </article>
 
-            <!-- NilexViewer -->
-            <article class="project-card" data-category="cloud">
-                <div class="project-image">
-                    <img src="https://picsum.photos/800/600?random=6" alt="NilexViewer">
-                    <div class="project-overlay">
-                        <a href="https://github.com/jtg86/NilexViewer" class="project-link" target="_blank" rel="noreferrer">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M18 13V19C18 20.1046 17.1046 21 16 21H5C3.89543 21 3 20.1046 3 19V8C3 6.89543 3.89543 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/jtg86/NilexViewer#readme" class="project-link" target="_blank" rel="noreferrer">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M9 19C9 19 4 14.5 4 9.5C4 7.76 5.24 6.25 7 5.75V5.75C8.76 5.25 10 3.75 10 2V2C10 3.75 11.24 5.25 13 5.75V5.75C14.76 6.25 16 7.76 16 9.5C16 14.5 11 19 11 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <div class="project-tags">
-                        <span class="tag">Flask</span>
-                        <span class="tag">Azure Cosmos DB</span>
-                        <span class="tag">Terraform</span>
-                    </div>
-                    <h3 class="project-title">NilexViewer</h3>
-                    <p class="project-description">
-                        Flask application for searching and viewing support cases with
-                        an Azure Cosmos DB backend, demonstrating cloud-native design
-                        for service management data.
-                    </p>
+            <article class="project-card tilt reveal">
+                <div class="card-eyes" aria-hidden="true"><span class="g-eye sm"><span class="pupil"></span></span><span class="g-eye sm"><span class="pupil"></span></span></div>
+                <div class="project-icon mono">db</div>
+                <div class="project-tags mono"><span>Flask</span><span>Azure Cosmos DB</span><span>Terraform</span></div>
+                <h3>NilexViewer</h3>
+                <p>Flask application for searching and viewing support cases with an Azure Cosmos DB
+                   backend, demonstrating cloud-native design for service management data.</p>
+                <div class="project-links mono">
+                    <a href="https://github.com/jtg86/NilexViewer" target="_blank" rel="noreferrer">code ↗</a>
+                    <a href="https://github.com/jtg86/NilexViewer#readme" target="_blank" rel="noreferrer">readme ↗</a>
                 </div>
             </article>
         </div>
-        <div class="projects-cta">
-            <a href="https://github.com/jtg86?tab=repositories" class="btn btn-secondary" target="_blank" rel="noreferrer">
-                <span>View All GitHub Repositories</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
+        <div class="center reveal">
+            <a href="https://github.com/jtg86?tab=repositories" target="_blank" rel="noreferrer" class="btn btn-ghost">View All GitHub Repositories ↗</a>
         </div>
-        <span class="section-tag closing">&lt;/projects&gt;</span>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="section-header">
-            <span class="section-tag">&lt;skills&gt;</span>
-            <h2 class="section-title">
-                Core
-                <span class="highlight">Competence</span>
-            </h2>
-            <p class="section-description">
-                Technologies and domains I work with across IT operations,
-                cloud, security and automation.
+    <!-- ============ LAB: interactive terraform demo ============ -->
+    <section class="section" id="lab">
+        <div class="section-head reveal">
+            <span class="section-tag mono">&lt;lab&gt;</span>
+            <h2>Deploy My <span class="gradient-text">Azure AI Stack</span></h2>
+            <p class="section-sub">
+                A tiny interactive replica of my
+                <a href="https://github.com/jtg86/azure-ai-terraform-demo" target="_blank" rel="noreferrer" class="inline-link">azure-ai-terraform-demo</a>
+                repo. Run the commands and watch the architecture deploy itself.
+                <em>No clouds were harmed. No invoices were generated.</em>
             </p>
         </div>
-        <div class="skills-container">
-            <div class="skills-category">
-                <h3 class="category-title">
-                    <span class="category-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
-                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </span>
-                    Cloud & Infrastructure
-                </h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
-                        </div>
-                        <span class="skill-name">Microsoft Azure</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
+        <div class="lab-grid">
+            <div class="lab-left reveal">
+                <div class="lab-buttons mono">
+                    <button class="lab-btn" data-cmd="init">terraform init</button>
+                    <button class="lab-btn" data-cmd="plan">terraform plan</button>
+                    <button class="lab-btn apply" data-cmd="apply">terraform apply</button>
+                    <button class="lab-btn danger" data-cmd="destroy">terraform destroy</button>
+                </div>
+                <div class="terminal lab-terminal">
+                    <div class="terminal-bar">
+                        <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+                        <span class="terminal-title mono">azure-ai-demo: ~/infra</span>
                     </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform">
-                        </div>
-                        <span class="skill-name">Terraform / IaC</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows Server">
-                        </div>
-                        <span class="skill-name">Windows Server</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
-                        </div>
-                        <span class="skill-name">Linux</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
-                        </div>
-                    </div>
+                    <div class="terminal-body mono" id="labTerminal">Click a command above to get started…
+</div>
                 </div>
             </div>
-            <div class="skills-category">
-                <h3 class="category-title">
-                    <span class="category-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-                            <path d="M8 21H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M12 17V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </span>
-                    Automation & Microsoft 365
-                </h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" alt="PowerShell">
+            <div class="diagram reveal">
+                <div class="rg" id="rgBox">
+                    <span class="rg-label mono">☁ rg-ai-demo · westeurope</span>
+                    <div class="nodes">
+                        <div class="node" data-res="app">
+                            <span class="node-ico">🌐</span>
+                            <span class="node-name">App Service</span>
+                            <span class="node-type mono">azurerm_linux_web_app</span>
                         </div>
-                        <span class="skill-name">PowerShell automation</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="95"></div>
+                        <div class="node" data-res="kv">
+                            <span class="node-ico">🔐</span>
+                            <span class="node-name">Key Vault</span>
+                            <span class="node-type mono">azurerm_key_vault</span>
                         </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="M365">
+                        <div class="node" data-res="oai">
+                            <span class="node-eyes" aria-hidden="true"><span class="g-eye sm"><span class="pupil"></span></span><span class="g-eye sm"><span class="pupil"></span></span></span>
+                            <span class="node-name">Azure OpenAI</span>
+                            <span class="node-type mono">azurerm_cognitive_account</span>
                         </div>
-                        <span class="skill-name">Microsoft 365 admin</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg" alt="GitHub Actions">
-                        </div>
-                        <span class="skill-name">GitHub Actions / DevOps</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
-                        </div>
-                        <span class="skill-name">Docker & containers</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="75"></div>
+                        <div class="node" data-res="ins">
+                            <span class="node-ico">📈</span>
+                            <span class="node-name">App Insights</span>
+                            <span class="node-type mono">azurerm_application_insights</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="skills-category">
-                <h3 class="category-title">
-                    <span class="category-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
-                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </span>
-                    Programming & Security
-                </h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                        </div>
-                        <span class="skill-name">Python</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-                        </div>
-                        <span class="skill-name">Java</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
-                        </div>
-                        <span class="skill-name">PHP</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg" alt="Security">
-                        </div>
-                        <span class="skill-name">Security & ethical hacking</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
-                    </div>
-                </div>
+                <div class="diagram-status mono" id="diagramStatus">state: empty — nothing deployed yet</div>
             </div>
         </div>
-        <span class="section-tag closing">&lt;/skills&gt;</span>
+        <div class="lab-features mono reveal">
+            <span>🔑 Managed Identity — zero API keys</span>
+            <span>🛡 RBAC least-privilege</span>
+            <span>📊 diagnostics → Log Analytics</span>
+            <span>🔍 CI/CD with Trivy security scan</span>
+            <span>🌍 multi-env dev / prod</span>
+        </div>
     </section>
 
-    <!-- Testimonials Section (kept generic) -->
-    <section class="testimonials">
-        <div class="section-header">
-            <span class="section-tag">&lt;testimonials&gt;</span>
-            <h2 class="section-title">
-                What People
-                <span class="highlight">Say</span>
-            </h2>
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+        <div class="section-head reveal">
+            <span class="section-tag mono">&lt;skills&gt;</span>
+            <h2>Core <span class="gradient-text">Competence</span></h2>
+            <p class="section-sub">Technologies and domains I work with across IT operations, cloud, security and automation.</p>
         </div>
-        <div class="testimonials-slider">
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <div class="quote-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
-                        </svg>
-                    </div>
-                    <p class="testimonial-text">
-                        "Jan Tommy quickly understands both technical and business needs,
-                        and is always looking for ways to automate and improve our
-                        daily work. A solid team player who shares knowledge with
-                        others."
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://picsum.photos/100/100?random=10" alt="Colleague" class="author-image">
-                        <div class="author-info">
-                            <span class="author-name">Colleague feedback</span>
-                            <span class="author-role">IT operations & support</span>
-                        </div>
-                        <div class="testimonial-rating">
-                            <span>5.0</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                            </svg>
-                        </div>
-                    </div>
+        <div class="skills-grid">
+            <div class="skill-card reveal">
+                <div class="skill-head">
+                    <span class="skill-emoji">🤖</span>
+                    <h3>AI Engineering</h3>
                 </div>
+                <div class="skill-bar"><span class="skill-name">Azure OpenAI &amp; AI Foundry</span><div class="bar"><div class="fill" style="--w:90%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">RAG &amp; Azure AI Search</span><div class="bar"><div class="fill" style="--w:85%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">MCP &amp; AI agents</span><div class="bar"><div class="fill" style="--w:85%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">LLM evaluation &amp; red-teaming</span><div class="bar"><div class="fill" style="--w:80%"></div></div></div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <div class="quote-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
-                        </svg>
-                    </div>
-                    <p class="testimonial-text">
-                        "Strong focus on structure, documentation and quality. Brings
-                        in new ideas around cloud, security and AI, and helps others
-                        adopt new tools in a safe way."
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://picsum.photos/100/100?random=11" alt="Mentor" class="author-image">
-                        <div class="author-info">
-                            <span class="author-name">Mentor feedback</span>
-                            <span class="author-role">Fagskole / courses</span>
-                        </div>
-                        <div class="testimonial-rating">
-                            <span>5.0</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                            </svg>
-                        </div>
-                    </div>
+            <div class="skill-card reveal">
+                <div class="skill-head">
+                    <span class="skill-emoji">☁️</span>
+                    <h3>Cloud &amp; Infrastructure</h3>
                 </div>
+                <div class="skill-bar"><span class="skill-name">Microsoft Azure</span><div class="bar"><div class="fill" style="--w:90%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">Terraform / IaC</span><div class="bar"><div class="fill" style="--w:85%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">Windows Server</span><div class="bar"><div class="fill" style="--w:90%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">Linux</span><div class="bar"><div class="fill" style="--w:80%"></div></div></div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <div class="quote-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
-                        </svg>
-                    </div>
-                    <p class="testimonial-text">
-                        "Combines hands-on experience from fiber, networking and PC
-                        help with modern cloud skills. Comfortable both with
-                        customers and deep technical troubleshooting."
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://picsum.photos/100/100?random=12" alt="Manager" class="author-image">
-                        <div class="author-info">
-                            <span class="author-name">Manager feedback</span>
-                            <span class="author-role">Telecom & IT</span>
-                        </div>
-                        <div class="testimonial-rating">
-                            <span>5.0</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                            </svg>
-                        </div>
-                    </div>
+            <div class="skill-card reveal">
+                <div class="skill-head">
+                    <span class="skill-emoji">⚙️</span>
+                    <h3>Automation &amp; Microsoft 365</h3>
                 </div>
+                <div class="skill-bar"><span class="skill-name">PowerShell automation</span><div class="bar"><div class="fill" style="--w:95%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">Microsoft 365 admin</span><div class="bar"><div class="fill" style="--w:95%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">GitHub Actions / DevOps</span><div class="bar"><div class="fill" style="--w:80%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">Docker &amp; containers</span><div class="bar"><div class="fill" style="--w:75%"></div></div></div>
+            </div>
+            <div class="skill-card reveal">
+                <div class="skill-head">
+                    <span class="skill-emoji">🛡️</span>
+                    <h3>Programming &amp; Security</h3>
+                </div>
+                <div class="skill-bar"><span class="skill-name">Python</span><div class="bar"><div class="fill" style="--w:85%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">Java</span><div class="bar"><div class="fill" style="--w:70%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">PHP</span><div class="bar"><div class="fill" style="--w:65%"></div></div></div>
+                <div class="skill-bar"><span class="skill-name">Security &amp; ethical hacking</span><div class="bar"><div class="fill" style="--w:80%"></div></div></div>
             </div>
         </div>
-        <div class="slider-controls">
-            <button class="slider-btn prev">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <div class="slider-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-            <button class="slider-btn next">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-        </div>
-        <span class="section-tag closing">&lt;/testimonials&gt;</span>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="section-header">
-            <span class="section-tag">&lt;contact&gt;</span>
-            <h2 class="section-title">
-                Let's Work
-                <span class="highlight">Together</span>
-            </h2>
-            <p class="section-description">
-                Interested in IT operations, cloud or automation work?
-                Reach out and let's talk.
-            </p>
+    <!-- ============ CERTIFICATIONS ============ -->
+    <section class="section" id="certs">
+        <div class="section-head reveal">
+            <span class="section-tag mono">&lt;certs&gt;</span>
+            <h2>Certs <span class="gradient-text">&amp; Courses</span></h2>
+            <p class="section-sub">A selection from 34+ certifications and courses across AI, cloud, security and DevOps.</p>
         </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="info-details">
-                        <span class="info-label">Email</span>
-                        <a href="mailto:jan_tommy_g@hotmail.com" class="info-value">jan_tommy_g@hotmail.com</a>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 5.02944 7.02944 1 12 1C16.9706 1 21 5.02944 21 10Z" stroke="currentColor" stroke-width="2"/>
-                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="info-details">
-                        <span class="info-label">Location</span>
-                        <span class="info-value">Arendal, Norway</span>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="info-details">
-                        <span class="info-label">Response Time</span>
-                        <span class="info-value">Typically within 24 hours</span>
-                    </div>
-                </div>
-                <div class="social-links">
-                    <a href="https://github.com/jtg86" class="social-link" aria-label="GitHub" target="_blank" rel="noreferrer">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/jan-tommy-zonneveld-25604b83/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noreferrer">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452H16.893V14.883C16.893 13.555 16.866 11.846 15.041 11.846C13.188 11.846 12.905 13.291 12.905 14.785V20.452H9.351V9H12.765V10.561H12.811C13.288 9.661 14.448 8.711 16.181 8.711C19.782 8.711 20.448 11.081 20.448 14.166V20.452H20.447ZM5.337 7.433C4.193 7.433 3.274 6.507 3.274 5.368C3.274 4.23 4.194 3.305 5.337 3.305C6.477 3.305 7.401 4.23 7.401 5.368C7.401 6.507 6.476 7.433 5.337 7.433ZM7.119 20.452H3.555V9H7.119V20.452Z"/>
-                        </svg>
-                    </a>
-                </div>
+        <div class="cert-filters mono reveal" id="certFilters">
+            <button data-f="all" class="active">--all</button>
+            <button data-f="ai">--ai</button>
+            <button data-f="cloud">--cloud</button>
+            <button data-f="security">--security</button>
+            <button data-f="devops">--devops</button>
+        </div>
+        <div class="certs-grid">
+            <div class="cert-card reveal" data-cat="ai">
+                <span class="cert-badge mono">AI</span>
+                <h3>AI-3016: Develop Generative AI Apps in Azure AI Foundry</h3>
+                <span class="cert-issuer">Microsoft · 2026</span>
             </div>
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" required>
-                    <label for="name">Your Name</label>
-                    <span class="input-highlight"></span>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" required>
-                    <label for="email">Your Email</label>
-                    <span class="input-highlight"></span>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="subject" name="subject" required>
-                    <label for="subject">Subject</label>
-                    <span class="input-highlight"></span>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                    <label for="message">Your Message</label>
-                    <span class="input-highlight"></span>
-                </div>
-                <button type="submit" class="btn btn-primary btn-full">
-                    <span>Send Message</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </form>
+            <div class="cert-card reveal" data-cat="ai">
+                <span class="cert-badge mono">AI</span>
+                <h3>AI-3026: Develop AI Agents on Azure</h3>
+                <span class="cert-issuer">Microsoft</span>
+            </div>
+            <div class="cert-card reveal" data-cat="ai">
+                <span class="cert-badge mono">AI</span>
+                <h3>Career Essentials in Generative AI</h3>
+                <span class="cert-issuer">Microsoft &amp; LinkedIn · 2024</span>
+            </div>
+            <div class="cert-card reveal" data-cat="ai">
+                <span class="cert-badge mono">AI</span>
+                <h3>Introduction to Model Context Protocol</h3>
+                <span class="cert-issuer">Anthropic</span>
+            </div>
+            <div class="cert-card reveal" data-cat="ai">
+                <span class="cert-badge mono">AI</span>
+                <h3>Claude Code in Action</h3>
+                <span class="cert-issuer">Anthropic</span>
+            </div>
+            <div class="cert-card reveal" data-cat="ai">
+                <span class="cert-badge mono">AI</span>
+                <h3>Microsoft Copilot for Productivity</h3>
+                <span class="cert-issuer">Microsoft &amp; LinkedIn</span>
+            </div>
+            <div class="cert-card reveal" data-cat="ai">
+                <span class="cert-badge mono">AI</span>
+                <h3>Build Your Generative AI Productivity Skills</h3>
+                <span class="cert-issuer">Microsoft &amp; LinkedIn · 2024</span>
+            </div>
+            <div class="cert-card reveal" data-cat="cloud">
+                <span class="cert-badge mono">CLOUD</span>
+                <h3>AZ-104: Prerequisites for Azure Administrators</h3>
+                <span class="cert-issuer">Microsoft</span>
+            </div>
+            <div class="cert-card reveal" data-cat="cloud">
+                <span class="cert-badge mono">CLOUD</span>
+                <h3>Azure Identity and Networking Essentials</h3>
+                <span class="cert-issuer">Microsoft</span>
+            </div>
+            <div class="cert-card reveal" data-cat="cloud">
+                <span class="cert-badge mono">CLOUD</span>
+                <h3>Managing Identity Services using AD DS and Microsoft Entra</h3>
+                <span class="cert-issuer">Microsoft</span>
+            </div>
+            <div class="cert-card reveal" data-cat="security">
+                <span class="cert-badge mono">SEC</span>
+                <h3>Certified in Cybersecurity (CC)</h3>
+                <span class="cert-issuer">ISC2 · since 2024</span>
+            </div>
+            <div class="cert-card reveal" data-cat="security">
+                <span class="cert-badge mono">SEC</span>
+                <h3>Career Essentials in Cybersecurity</h3>
+                <span class="cert-issuer">Microsoft &amp; LinkedIn</span>
+            </div>
+            <div class="cert-card reveal" data-cat="devops">
+                <span class="cert-badge mono">DEVOPS</span>
+                <h3>Docker Foundations Professional Certificate</h3>
+                <span class="cert-issuer">Docker</span>
+            </div>
+            <div class="cert-card reveal" data-cat="devops">
+                <span class="cert-badge mono">DEVOPS</span>
+                <h3>Career Essentials in GitHub Professional Certificate</h3>
+                <span class="cert-issuer">GitHub &amp; LinkedIn · 2024</span>
+            </div>
+            <div class="cert-card reveal" data-cat="devops">
+                <span class="cert-badge mono">DEVOPS</span>
+                <h3>Network Automation Professional Certificate</h3>
+                <span class="cert-issuer">Arista Networks</span>
+            </div>
         </div>
-        <span class="section-tag closing">&lt;/contact&gt;</span>
+        <div class="center reveal">
+            <a href="https://www.linkedin.com/in/jan-tommy-zonneveld-25604b83/" target="_blank" rel="noreferrer" class="btn btn-ghost">View all 34+ on LinkedIn ↗</a>
+        </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+        <div class="section-head reveal">
+            <span class="section-tag mono">&lt;contact&gt;</span>
+            <h2>Let's Work <span class="gradient-text">Together</span></h2>
+            <p class="section-sub">Interested in IT operations, cloud or automation work? Reach out and let's talk.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info reveal">
+                <div class="contact-item">
+                    <span class="contact-ico">✉️</span>
+                    <div><span class="mono c-label">email</span>
+                    <a href="mailto:jan_tommy_g@hotmail.com">jan_tommy_g@hotmail.com</a></div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-ico">📍</span>
+                    <div><span class="mono c-label">location</span>
+                    <span>Arendal, Norway</span></div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-ico">⚡</span>
+                    <div><span class="mono c-label">response_time</span>
+                    <span>Typically within 24 hours</span></div>
+                </div>
+                <div class="socials">
+                    <a href="https://github.com/jtg86" target="_blank" rel="noreferrer" class="social-btn mono">GitHub ↗</a>
+                    <a href="https://www.linkedin.com/in/jan-tommy-zonneveld-25604b83/" target="_blank" rel="noreferrer" class="social-btn mono">LinkedIn ↗</a>
+                </div>
+            </div>
+            <div class="contact-cta reveal">
+                <div class="cta-eyes" aria-hidden="true"><span class="g-eye"><span class="pupil"></span></span><span class="g-eye"><span class="pupil"></span></span></div>
+                <p class="mono cta-line">$ mail -s "Let's talk" jan_tommy_g@hotmail.com</p>
+                <p>No forms, no spam — just send me an email and I'll usually
+                   get back to you within 24 hours.</p>
+                <a href="mailto:jan_tommy_g@hotmail.com?subject=Let's%20talk" class="btn btn-primary btn-big">✉️ Send me an email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peeking creature (bottom-right) -->
+    <div class="peeker" id="peeker" aria-hidden="true">
+        <div class="peeker-body">
+            <div class="g-eye"><span class="pupil"></span></div>
+            <div class="g-eye"><span class="pupil"></span></div>
+        </div>
+        <div class="peeker-hand h1"></div>
+        <div class="peeker-hand h2"></div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span class="logo-text">&lt;Jan Tommy Zonneveld/&gt;</span>
-                <p>IT operations, cloud & automation that create real value.</p>
+        <div class="walker" id="walker" aria-hidden="true">
+            <div class="walker-body">
+                <div class="g-eye sm"><span class="pupil"></span></div>
+                <div class="g-eye sm"><span class="pupil"></span></div>
             </div>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </div>
+            <div class="walker-leg leg1"></div>
+            <div class="walker-leg leg2"></div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Jan Tommy Gustavsen Zonneveld. All rights reserved.</p>
-            <p>"Automate the boring stuff, focus on what matters."</p>
+        <div class="footer-inner">
+            <span class="nav-logo mono">&lt;JanTommy<span class="accent">/</span>&gt;</span>
+            <p>IT operations, cloud &amp; automation that create real value.</p>
+            <p class="mono footer-quote">"Automate the boring stuff, focus on what matters."</p>
+            <p class="footer-copy">© 2026 Jan Tommy Gustavsen Zonneveld. All rights reserved.</p>
         </div>
     </footer>
 
