@@ -684,6 +684,13 @@ h1, h2, h3 { line-height: 1.15; font-weight: 700; }
 .project-links { display: flex; gap: 1.3rem; font-size: 0.82rem; }
 .project-links a { color: var(--accent); text-decoration: none; }
 .project-links a:hover { color: var(--accent-2); }
+.project-links .demo-link {
+    color: var(--accent-2);
+    border: 1px solid rgba(163, 230, 53, 0.4);
+    border-radius: 8px;
+    padding: 0.15rem 0.6rem;
+}
+.project-links .demo-link:hover { color: #04222a; background: var(--accent-2); }
 
 /* ---------- lab: terraform demo ---------- */
 .inline-link { color: var(--accent); text-decoration: none; }
