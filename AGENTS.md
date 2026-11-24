@@ -2,6 +2,8 @@
 
 ## Project overview
 Static portfolio site: `index.html`, `styles.css`, `script.js`. No build step, package manager or test framework.
+The site is an arcade game ("UPTIME") rendered on a 240×320 `<canvas>` in `script.js`; the CV lives as HTML in the `#manual` section of `index.html` and the game clones its `#career .stage[data-stage]` entries for stage-clear cards. `museum/` is a separately built demo — don't edit it by hand.
+Use `/?debug` to expose `window.UPTIME` (startGame, toBoss, killBoss, god, step) for manual or Playwright testing.
 
 ## Build / lint / test commands
 - **Run locally**: open `index.html` in a browser (or use `npx serve .` / VS Code Live Server).

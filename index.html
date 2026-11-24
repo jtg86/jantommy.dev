@@ -1,523 +1,469 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jan Tommy Zonneveld — IT Operations & Cloud Engineer</title>
-    <meta name="description" content="Portfolio of Jan Tommy Gustavsen Zonneveld — IT operations and cloud engineer from Norway. Azure, Microsoft 365, PowerShell automation and applied AI.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>UPTIME — the arcade CV of Jan Tommy Zonneveld</title>
+    <meta name="description" content="Play through the career of Jan Tommy Gustavsen Zonneveld — IT operations and cloud engineer from Norway. An arcade game in five stages: helpdesk, sales, fiber, fagskole and cloud &amp; AI.">
+    <meta name="theme-color" content="#07060f">
+    <meta property="og:title" content="UPTIME — the arcade CV of Jan Tommy Zonneveld">
+    <meta property="og:description" content="Five stages, five bosses, one career: from helpdesk apprentice to Azure OpenAI. Insert coin.">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🤖</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect x='7' y='0' width='2' height='2' fill='%23fde047'/><rect x='7' y='2' width='2' height='2' fill='%2394a3b8'/><rect x='2' y='4' width='12' height='9' fill='%2394a3b8'/><rect x='3' y='5' width='10' height='7' fill='%230b0f1a'/><rect x='4' y='7' width='3' height='2' fill='%2322d3ee'/><rect x='9' y='7' width='3' height='2' fill='%2322d3ee'/></svg>">
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
 </head>
 <body>
+    <a class="skip-link" href="#manual">Skip the game — read the CV</a>
 
-    <canvas id="particles"></canvas>
-    <div class="cursor-glow" id="cursorGlow"></div>
-
-    <!-- ============ NAV ============ -->
-    <nav class="nav" id="nav">
-        <a href="#home" class="nav-logo mono">&lt;JanTommy<span class="accent">/</span>&gt;</a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#lab" class="nav-link">Lab</a></li>
-            <li><a href="#skills" class="nav-link">Skills</a></li>
-            <li><a href="#certs" class="nav-link">Certs</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <button class="nav-burger" id="navBurger" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-    </nav>
-
-    <!-- ============ HERO ============ -->
-    <header class="hero section" id="home">
-        <div class="hero-grid">
-            <div class="hero-text">
-                <div class="badge reveal">
-                    <span class="badge-dot"></span> Open to IT / cloud opportunities
-                </div>
-                <h1 class="hero-title reveal">
-                    IT Operations<br>
-                    <span class="gradient-text">&amp; Cloud</span>
-                </h1>
-                <p class="hero-sub reveal">
-                    I'm an IT operations and cloud engineer from Norway, working daily with
-                    Microsoft&nbsp;365, Entra&nbsp;ID, Azure and automation — and increasingly with AI,
-                    building secure Azure OpenAI solutions that make support and operations smarter.
-                </p>
-                <div class="hero-cta reveal">
-                    <a href="#projects" class="btn btn-primary">View Featured Projects</a>
-                    <a href="#contact" class="btn btn-ghost">Get in Touch</a>
-                </div>
-                <div class="hero-stats reveal">
-                    <div class="stat">
-                        <span class="stat-number mono" data-count="15">0</span>
-                        <span class="stat-label">Automation / IaC projects</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number mono" data-count="10">0</span>
-                        <span class="stat-label">Years in IT roles</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number mono" data-count="20">0</span>
-                        <span class="stat-label">Certs &amp; courses</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-visual">
-                <!-- Robot mascot — click him! -->
-                <div class="mascot" id="mascot" title="Click me!">
-                    <div class="speech" id="mascotSpeech">Hei! I'm Bit. I live here. 👋</div>
-                    <div class="antenna"><div class="antenna-ball"></div></div>
-                    <div class="bot-head">
-                        <div class="eye"><div class="pupil"></div></div>
-                        <div class="eye"><div class="pupil"></div></div>
-                        <div class="bot-mouth" id="botMouth"></div>
-                    </div>
-                    <div class="bot-body">
-                        <div class="bot-lights">
-                            <span class="bot-light l1"></span>
-                            <span class="bot-light l2"></span>
-                            <span class="bot-light l3"></span>
-                        </div>
-                    </div>
-                    <div class="bot-shadow"></div>
-                </div>
-
-                <!-- Terminal window -->
-                <div class="terminal reveal">
-                    <div class="terminal-bar">
-                        <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
-                        <span class="terminal-title mono">jantommy@cloud:~</span>
-                    </div>
-                    <div class="terminal-body mono" id="terminalBody"></div>
-                </div>
-            </div>
-        </div>
-        <a href="#about" class="scroll-hint mono">scroll_down() <span class="scroll-arrow">▾</span></a>
+    <!-- ============ TOP BAR ============ -->
+    <header class="topbar">
+        <a href="#top" class="brand">&lt;JanTommy<span>/</span>&gt;</a>
+        <nav class="topnav" aria-label="Site">
+            <a href="#manual" class="tbtn tbtn-cv">CV</a>
+            <button type="button" class="tbtn js-only" id="soundBtn" aria-pressed="true" title="Toggle sound (M)">♪ ON</button>
+            <a href="https://github.com/jtg86" class="tbtn hide-sm" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/jan-tommy-zonneveld-25604b83/" class="tbtn hide-sm" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </nav>
     </header>
 
-    <!-- ============ ABOUT ============ -->
-    <section class="section" id="about">
-        <div class="section-head reveal">
-            <span class="section-tag mono">&lt;about&gt;</span>
-            <h2>Building Reliable <span class="gradient-text">IT Platforms</span>
-                <span class="googly" aria-hidden="true"><span class="g-eye"><span class="pupil"></span></span><span class="g-eye"><span class="pupil"></span></span></span>
-            </h2>
-        </div>
-        <div class="about-grid">
-            <div class="about-text reveal">
-                <p>
-                    Hi, I'm <strong>Jan Tommy Gustavsen Zonneveld</strong>, an IT operations specialist
-                    and cloud enthusiast from Norway. I work in IKT Agder with Microsoft 365 platforms
-                    and user support for several municipalities. These days a large part of my time
-                    goes into <strong>building AI solutions on Azure OpenAI</strong> — retrieval-augmented
-                    generation with Azure AI Search, security trimming through Entra ID groups, and
-                    infrastructure managed end-to-end with Terraform.
-                </p>
-                <p>
-                    I have a higher vocational degree in IT operations (120 ECTS, level 5.2) with top
-                    grades (A) in all programming subjects, PowerShell automation, Linux, Microsoft 365
-                    and ethical hacking. I care about doing AI right: grounded answers with source
-                    citations, evaluation sets and red-teaming before production, and governance and
-                    privacy before technology — especially in the public sector.
-                </p>
-                <p>
-                    Over the years I have also worked as a teacher assistant in Infrastructure as Code,
-                    fiber technician, PC/mobile repair technician and B2B advisor. This gives me a
-                    strong practical understanding, good communication skills and the ability to
-                    explain complex technical topics in a simple way.
-                </p>
-            </div>
-            <div class="about-card reveal" id="aboutCard">
-                <!-- blob buddy peeking over the card -->
-                <div class="blob-buddy" aria-hidden="true">
-                    <div class="g-eye"><span class="pupil"></span></div>
-                    <div class="g-eye"><span class="pupil"></span></div>
-                </div>
-                <dl class="info-list mono">
-                    <div><dt>name</dt><dd>Jan Tommy G. Zonneveld</dd></div>
-                    <div><dt>email</dt><dd><a href="mailto:jan_tommy_g@hotmail.com">jan_tommy_g@hotmail.com</a></dd></div>
-                    <div><dt>location</dt><dd>Arendal, Norway 🇳🇴</dd></div>
-                    <div><dt>status</dt><dd><span class="status-ok">● open_to_opportunities</span></dd></div>
-                    <div><dt>uptime</dt><dd>10+ years in IT &amp; support</dd></div>
-                </dl>
-                <a href="#contact" class="btn btn-primary btn-block">Let's Connect</a>
-            </div>
-        </div>
-    </section>
+    <main id="top">
+        <p class="nojs-note">This site is an arcade game and needs JavaScript. The full CV is right below.</p>
 
-    <!-- ============ PROJECTS ============ -->
-    <section class="section" id="projects">
-        <div class="section-head reveal">
-            <span class="section-tag mono">&lt;projects&gt;</span>
-            <h2>Real-World <span class="gradient-text">Automation &amp; Cloud</span></h2>
-            <p class="section-sub">
-                Selected projects from my GitHub — Infrastructure as Code, Microsoft 365 automation,
-                applied machine learning and the occasional 3D experiment.
-                <em>(The cards are watching you. Don't be alarmed.)</em>
-            </p>
-        </div>
-        <div class="projects-grid">
-            <article class="project-card tilt reveal">
-                <div class="card-eyes" aria-hidden="true"><span class="g-eye sm"><span class="pupil"></span></span><span class="g-eye sm"><span class="pupil"></span></span></div>
-                <div class="project-icon mono">tf</div>
-                <div class="project-tags mono"><span>Terraform</span><span>Azure</span><span>GitHub Actions</span></div>
-                <h3>Azure AI Terraform Demo</h3>
-                <p>Production-style Terraform reference implementation for deploying an Azure
-                   OpenAI-backed API with App Service, Key Vault and monitoring, following
-                   Infrastructure as Code best practices.</p>
-                <div class="project-links mono">
-                    <a href="https://github.com/jtg86/azure-ai-terraform-demo" target="_blank" rel="noreferrer">code ↗</a>
-                    <a href="https://github.com/jtg86/azure-ai-terraform-demo#readme" target="_blank" rel="noreferrer">readme ↗</a>
-                </div>
-            </article>
+        <!-- ============ THE ARCADE ============ -->
+        <section class="arcade" aria-label="UPTIME — arcade game">
 
-            <article class="project-card tilt reveal">
-                <div class="card-eyes" aria-hidden="true"><span class="g-eye sm"><span class="pupil"></span></span><span class="g-eye sm"><span class="pupil"></span></span></div>
-                <div class="project-icon mono">ps</div>
-                <div class="project-tags mono"><span>PowerShell</span><span>Microsoft Graph</span><span>Exchange Online</span></div>
-                <h3>M365 Admin Tool</h3>
-                <p>Desktop GUI tool built with PowerShell 7 and WPF for managing shared mailboxes
-                   and distribution groups in Microsoft 365 / Exchange Online, tailored for
-                   day-to-day IT operations.</p>
-                <div class="project-links mono">
-                    <a href="https://github.com/jtg86/365SharedMailandDistributionGroupsTool" target="_blank" rel="noreferrer">code ↗</a>
-                    <a href="https://github.com/jtg86/365SharedMailandDistributionGroupsTool#readme" target="_blank" rel="noreferrer">readme ↗</a>
-                </div>
-            </article>
-
-            <article class="project-card tilt reveal">
-                <div class="card-eyes" aria-hidden="true"><span class="g-eye sm"><span class="pupil"></span></span><span class="g-eye sm"><span class="pupil"></span></span></div>
-                <div class="project-icon mono">ai</div>
-                <div class="project-tags mono"><span>Python</span><span>scikit-learn</span><span>NLP</span></div>
-                <h3>Ticket AI Classifier</h3>
-                <p>Machine learning model for automatic classification and routing of IT support
-                   tickets, helping service desks reduce manual triage and improve response time.</p>
-                <div class="project-links mono">
-                    <a href="https://github.com/jtg86/ticket-ai-classifier" target="_blank" rel="noreferrer">code ↗</a>
-                    <a href="https://github.com/jtg86/ticket-ai-classifier#readme" target="_blank" rel="noreferrer">readme ↗</a>
-                </div>
-            </article>
-
-            <article class="project-card tilt reveal">
-                <div class="card-eyes" aria-hidden="true"><span class="g-eye sm"><span class="pupil"></span></span><span class="g-eye sm"><span class="pupil"></span></span></div>
-                <div class="project-icon mono">db</div>
-                <div class="project-tags mono"><span>Flask</span><span>Azure Cosmos DB</span><span>Terraform</span></div>
-                <h3>NilexViewer</h3>
-                <p>Flask application for searching and viewing support cases with an Azure Cosmos DB
-                   backend, demonstrating cloud-native design for service management data.</p>
-                <div class="project-links mono">
-                    <a href="https://github.com/jtg86/NilexViewer" target="_blank" rel="noreferrer">code ↗</a>
-                    <a href="https://github.com/jtg86/NilexViewer#readme" target="_blank" rel="noreferrer">readme ↗</a>
-                </div>
-            </article>
-
-            <article class="project-card tilt reveal">
-                <div class="card-eyes" aria-hidden="true"><span class="g-eye sm"><span class="pupil"></span></span><span class="g-eye sm"><span class="pupil"></span></span></div>
-                <div class="project-icon mono">3d</div>
-                <div class="project-tags mono"><span>Three.js</span><span>WebGL</span><span>National Library API</span></div>
-                <h3>Arendal Museum 3D</h3>
-                <p>Walkable 3D photo museum built with Three.js — wander through a procedurally
-                   generated southern-Norway church and explore 76 historical public-domain
-                   photographs of Arendal, fetched automatically from the National Library of
-                   Norway's open API and organized into era-based halls.</p>
-                <div class="project-links mono">
-                    <a href="/museum/" target="_blank" rel="noreferrer" class="demo-link">live demo ↗</a>
-                    <a href="https://github.com/jtg86/ArendalMuseum" target="_blank" rel="noreferrer">code ↗</a>
-                    <a href="https://github.com/jtg86/ArendalMuseum#readme" target="_blank" rel="noreferrer">readme ↗</a>
-                </div>
-            </article>
-        </div>
-        <div class="center reveal">
-            <a href="https://github.com/jtg86?tab=repositories" target="_blank" rel="noreferrer" class="btn btn-ghost">View All GitHub Repositories ↗</a>
-        </div>
-    </section>
-
-    <!-- ============ LAB: interactive terraform demo ============ -->
-    <section class="section" id="lab">
-        <div class="section-head reveal">
-            <span class="section-tag mono">&lt;lab&gt;</span>
-            <h2>Deploy My <span class="gradient-text">Azure AI Stack</span></h2>
-            <p class="section-sub">
-                A tiny interactive replica of my
-                <a href="https://github.com/jtg86/azure-ai-terraform-demo" target="_blank" rel="noreferrer" class="inline-link">azure-ai-terraform-demo</a>
-                repo. Run the commands and watch the architecture deploy itself.
-                <em>No clouds were harmed. No invoices were generated.</em>
-            </p>
-        </div>
-        <div class="lab-grid">
-            <div class="lab-left reveal">
-                <div class="lab-buttons mono">
-                    <button class="lab-btn" data-cmd="init">terraform init</button>
-                    <button class="lab-btn" data-cmd="plan">terraform plan</button>
-                    <button class="lab-btn apply" data-cmd="apply">terraform apply</button>
-                    <button class="lab-btn danger" data-cmd="destroy">terraform destroy</button>
-                </div>
-                <div class="terminal lab-terminal">
-                    <div class="terminal-bar">
-                        <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
-                        <span class="terminal-title mono">azure-ai-demo: ~/infra</span>
-                    </div>
-                    <div class="terminal-body mono" id="labTerminal">Click a command above to get started…
-</div>
-                </div>
-            </div>
-            <div class="diagram reveal">
-                <div class="rg" id="rgBox">
-                    <span class="rg-label mono">☁ rg-ai-demo · westeurope</span>
-                    <div class="nodes">
-                        <div class="node" data-res="app">
-                            <span class="node-ico">🌐</span>
-                            <span class="node-name">App Service</span>
-                            <span class="node-type mono">azurerm_linux_web_app</span>
-                        </div>
-                        <div class="node" data-res="kv">
-                            <span class="node-ico">🔐</span>
-                            <span class="node-name">Key Vault</span>
-                            <span class="node-type mono">azurerm_key_vault</span>
-                        </div>
-                        <div class="node" data-res="oai">
-                            <span class="node-eyes" aria-hidden="true"><span class="g-eye sm"><span class="pupil"></span></span><span class="g-eye sm"><span class="pupil"></span></span></span>
-                            <span class="node-name">Azure OpenAI</span>
-                            <span class="node-type mono">azurerm_cognitive_account</span>
-                        </div>
-                        <div class="node" data-res="ins">
-                            <span class="node-ico">📈</span>
-                            <span class="node-name">App Insights</span>
-                            <span class="node-type mono">azurerm_application_insights</span>
-                        </div>
+            <aside class="side side-left">
+                <div class="panel player-card">
+                    <p class="panel-tag">PLAYER 1</p>
+                    <h1 class="p-name">Jan Tommy <span>Gustavsen Zonneveld</span></h1>
+                    <dl class="p-stats">
+                        <div><dt>CLASS</dt><dd>IT Operations &amp; Cloud Engineer</dd></div>
+                        <div><dt>BASE</dt><dd>Arendal, Norway</dd></div>
+                        <div><dt>XP</dt><dd>10+ years in IT &amp; support</dd></div>
+                        <div><dt>STATUS</dt><dd class="ok">● Open to opportunities</dd></div>
+                    </dl>
+                    <div class="p-actions">
+                        <a class="pbtn" href="mailto:jan_tommy_g@hotmail.com?subject=Let's%20talk">✉ Email</a>
+                        <a class="pbtn" href="#manual">☰ Full CV</a>
                     </div>
                 </div>
-                <div class="diagram-status mono" id="diagramStatus">state: empty — nothing deployed yet</div>
-            </div>
-        </div>
-        <div class="lab-features mono reveal">
-            <span>🔑 Managed Identity — zero API keys</span>
-            <span>🛡 RBAC least-privilege</span>
-            <span>📊 diagnostics → Log Analytics</span>
-            <span>🔍 CI/CD with Trivy security scan</span>
-            <span>🌍 multi-env dev / prod</span>
-        </div>
-    </section>
+                <div class="panel controls-card">
+                    <p class="panel-tag">HOW TO PLAY</p>
+                    <ul class="keys keys-kbd">
+                        <li><kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd> / <kbd>WASD</kbd> move</li>
+                        <li>Fire is automatic — <em>automate the boring stuff</em></li>
+                        <li><kbd>X</kbd> terraform destroy (bomb)</li>
+                        <li><kbd>P</kbd> pause · <kbd>M</kbd> sound</li>
+                    </ul>
+                    <ul class="keys keys-touch">
+                        <li>Drag anywhere on the screen to move</li>
+                        <li>Fire is automatic</li>
+                        <li><b>DESTROY</b> clears the screen</li>
+                    </ul>
+                    <p class="hint">Catch the chips — every chip is a real skill from the CV.</p>
+                </div>
+            </aside>
 
-    <!-- ============ SKILLS ============ -->
-    <section class="section" id="skills">
-        <div class="section-head reveal">
-            <span class="section-tag mono">&lt;skills&gt;</span>
-            <h2>Core <span class="gradient-text">Competence</span></h2>
-            <p class="section-sub">Technologies and domains I work with across IT operations, cloud, security and automation.</p>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-card reveal">
-                <div class="skill-head">
-                    <span class="skill-emoji">🤖</span>
-                    <h3>AI Engineering</h3>
+            <div class="cabinet">
+                <div class="marquee" aria-hidden="true">
+                    <span class="marquee-sub">JAN TOMMY presents</span>
+                    <span class="marquee-title">UPTIME</span>
                 </div>
-                <div class="skill-bar"><span class="skill-name">Azure OpenAI &amp; AI Foundry</span><div class="bar"><div class="fill" style="--w:90%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">RAG &amp; Azure AI Search</span><div class="bar"><div class="fill" style="--w:85%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">MCP &amp; AI agents</span><div class="bar"><div class="fill" style="--w:85%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">LLM evaluation &amp; red-teaming</span><div class="bar"><div class="fill" style="--w:80%"></div></div></div>
-            </div>
-            <div class="skill-card reveal">
-                <div class="skill-head">
-                    <span class="skill-emoji">☁️</span>
-                    <h3>Cloud &amp; Infrastructure</h3>
-                </div>
-                <div class="skill-bar"><span class="skill-name">Microsoft Azure</span><div class="bar"><div class="fill" style="--w:90%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">Terraform / IaC</span><div class="bar"><div class="fill" style="--w:85%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">Windows Server</span><div class="bar"><div class="fill" style="--w:90%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">Linux</span><div class="bar"><div class="fill" style="--w:80%"></div></div></div>
-            </div>
-            <div class="skill-card reveal">
-                <div class="skill-head">
-                    <span class="skill-emoji">⚙️</span>
-                    <h3>Automation &amp; Microsoft 365</h3>
-                </div>
-                <div class="skill-bar"><span class="skill-name">PowerShell automation</span><div class="bar"><div class="fill" style="--w:95%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">Microsoft 365 admin</span><div class="bar"><div class="fill" style="--w:95%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">GitHub Actions / DevOps</span><div class="bar"><div class="fill" style="--w:80%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">Docker &amp; containers</span><div class="bar"><div class="fill" style="--w:75%"></div></div></div>
-            </div>
-            <div class="skill-card reveal">
-                <div class="skill-head">
-                    <span class="skill-emoji">🛡️</span>
-                    <h3>Programming &amp; Security</h3>
-                </div>
-                <div class="skill-bar"><span class="skill-name">Python</span><div class="bar"><div class="fill" style="--w:85%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">Java</span><div class="bar"><div class="fill" style="--w:70%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">PHP</span><div class="bar"><div class="fill" style="--w:65%"></div></div></div>
-                <div class="skill-bar"><span class="skill-name">Security &amp; ethical hacking</span><div class="bar"><div class="fill" style="--w:80%"></div></div></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ============ CERTIFICATIONS ============ -->
-    <section class="section" id="certs">
-        <div class="section-head reveal">
-            <span class="section-tag mono">&lt;certs&gt;</span>
-            <h2>Certs <span class="gradient-text">&amp; Courses</span></h2>
-            <p class="section-sub">A selection from 34+ certifications and courses across AI, cloud, security and DevOps.</p>
-        </div>
-        <div class="cert-filters mono reveal" id="certFilters">
-            <button data-f="all" class="active">--all</button>
-            <button data-f="ai">--ai</button>
-            <button data-f="cloud">--cloud</button>
-            <button data-f="security">--security</button>
-            <button data-f="devops">--devops</button>
-        </div>
-        <div class="certs-grid">
-            <div class="cert-card reveal" data-cat="ai">
-                <span class="cert-badge mono">AI</span>
-                <h3>AI-3016: Develop Generative AI Apps in Azure AI Foundry</h3>
-                <span class="cert-issuer">Microsoft · 2026</span>
-            </div>
-            <div class="cert-card reveal" data-cat="ai">
-                <span class="cert-badge mono">AI</span>
-                <h3>AI-3026: Develop AI Agents on Azure</h3>
-                <span class="cert-issuer">Microsoft</span>
-            </div>
-            <div class="cert-card reveal" data-cat="ai">
-                <span class="cert-badge mono">AI</span>
-                <h3>Career Essentials in Generative AI</h3>
-                <span class="cert-issuer">Microsoft &amp; LinkedIn · 2024</span>
-            </div>
-            <div class="cert-card reveal" data-cat="ai">
-                <span class="cert-badge mono">AI</span>
-                <h3>Introduction to Model Context Protocol</h3>
-                <span class="cert-issuer">Anthropic</span>
-            </div>
-            <div class="cert-card reveal" data-cat="ai">
-                <span class="cert-badge mono">AI</span>
-                <h3>Claude Code in Action</h3>
-                <span class="cert-issuer">Anthropic</span>
-            </div>
-            <div class="cert-card reveal" data-cat="ai">
-                <span class="cert-badge mono">AI</span>
-                <h3>Microsoft Copilot for Productivity</h3>
-                <span class="cert-issuer">Microsoft &amp; LinkedIn</span>
-            </div>
-            <div class="cert-card reveal" data-cat="ai">
-                <span class="cert-badge mono">AI</span>
-                <h3>Build Your Generative AI Productivity Skills</h3>
-                <span class="cert-issuer">Microsoft &amp; LinkedIn · 2024</span>
-            </div>
-            <div class="cert-card reveal" data-cat="cloud">
-                <span class="cert-badge mono">CLOUD</span>
-                <h3>AZ-104: Prerequisites for Azure Administrators</h3>
-                <span class="cert-issuer">Microsoft</span>
-            </div>
-            <div class="cert-card reveal" data-cat="cloud">
-                <span class="cert-badge mono">CLOUD</span>
-                <h3>Azure Identity and Networking Essentials</h3>
-                <span class="cert-issuer">Microsoft</span>
-            </div>
-            <div class="cert-card reveal" data-cat="cloud">
-                <span class="cert-badge mono">CLOUD</span>
-                <h3>Managing Identity Services using AD DS and Microsoft Entra</h3>
-                <span class="cert-issuer">Microsoft</span>
-            </div>
-            <div class="cert-card reveal" data-cat="security">
-                <span class="cert-badge mono">SEC</span>
-                <h3>Certified in Cybersecurity (CC)</h3>
-                <span class="cert-issuer">ISC2 · since 2024</span>
-            </div>
-            <div class="cert-card reveal" data-cat="security">
-                <span class="cert-badge mono">SEC</span>
-                <h3>Career Essentials in Cybersecurity</h3>
-                <span class="cert-issuer">Microsoft &amp; LinkedIn</span>
-            </div>
-            <div class="cert-card reveal" data-cat="devops">
-                <span class="cert-badge mono">DEVOPS</span>
-                <h3>Docker Foundations Professional Certificate</h3>
-                <span class="cert-issuer">Docker</span>
-            </div>
-            <div class="cert-card reveal" data-cat="devops">
-                <span class="cert-badge mono">DEVOPS</span>
-                <h3>Career Essentials in GitHub Professional Certificate</h3>
-                <span class="cert-issuer">GitHub &amp; LinkedIn · 2024</span>
-            </div>
-            <div class="cert-card reveal" data-cat="devops">
-                <span class="cert-badge mono">DEVOPS</span>
-                <h3>Network Automation Professional Certificate</h3>
-                <span class="cert-issuer">Arista Networks</span>
-            </div>
-        </div>
-        <div class="center reveal">
-            <a href="https://www.linkedin.com/in/jan-tommy-zonneveld-25604b83/" target="_blank" rel="noreferrer" class="btn btn-ghost">View all 34+ on LinkedIn ↗</a>
-        </div>
-    </section>
+                <div class="bezel">
+                    <div class="screen" id="screen">
+                        <canvas id="game" width="240" height="320" aria-label="UPTIME game screen" role="img"></canvas>
+                        <div class="crt" aria-hidden="true"></div>
 
-    <!-- ============ CONTACT ============ -->
-    <section class="section" id="contact">
-        <div class="section-head reveal">
-            <span class="section-tag mono">&lt;contact&gt;</span>
-            <h2>Let's Work <span class="gradient-text">Together</span></h2>
-            <p class="section-sub">Interested in IT operations, cloud or automation work? Reach out and let's talk.</p>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-info reveal">
-                <div class="contact-item">
-                    <span class="contact-ico">✉️</span>
-                    <div><span class="mono c-label">email</span>
-                    <a href="mailto:jan_tommy_g@hotmail.com">jan_tommy_g@hotmail.com</a></div>
+                        <!-- title / attract -->
+                        <div class="ov ov-title" id="ovTitle">
+                            <p class="t-pre">A CAREER IN 5 STAGES</p>
+                            <h2 class="t-logo">UPTIME</h2>
+                            <p class="t-tag">Keep the systems up.<br>Clear the queue. Ship to the cloud.</p>
+                            <div class="t-menu">
+                                <button type="button" class="mbtn primary" data-action="start">▶ START GAME</button>
+                                <button type="button" class="mbtn" data-action="how">? HOW TO PLAY</button>
+                                <a class="mbtn" href="#manual">☰ JUST THE CV</a>
+                            </div>
+                            <ol class="hi-table" id="hiTable" aria-label="High scores"></ol>
+                            <p class="t-coin blink">PRESS ENTER · TAP START</p>
+                        </div>
+
+                        <!-- how to play -->
+                        <div class="ov ov-panel" id="ovHow" hidden>
+                            <h2 class="ov-h">HOW TO PLAY</h2>
+                            <ul class="how-list">
+                                <li><span class="how-k">MOVE</span> Arrows / WASD / gamepad — or drag on touch</li>
+                                <li><span class="how-k">FIRE</span> Automatic. Obviously.</li>
+                                <li><span class="how-k">BOMB</span> <kbd>X</kbd> / DESTROY: <code>terraform destroy</code> wipes all bullets</li>
+                                <li><span class="how-k">GOAL</span> Survive each career stage and beat its boss</li>
+                            </ul>
+                            <h3 class="ov-h2">SKILL CHIPS</h3>
+                            <ul class="chip-legend">
+                                <li><span class="chip" style="--c:#fb923c">HD</span> Rapid fire</li>
+                                <li><span class="chip" style="--c:#c084fc">TF</span> Spread shot</li>
+                                <li><span class="chip" style="--c:#60a5fa">PS</span> Automation drone</li>
+                                <li><span class="chip" style="--c:#2dd4bf">ID</span> Shield</li>
+                                <li><span class="chip" style="--c:#a3e635">AI</span> Homing missiles</li>
+                                <li><span class="chip" style="--c:#f472b6">JAVA</span> +1 life</li>
+                                <li><span class="chip" style="--c:#fde047">CERT</span> Certification</li>
+                                <li><span class="chip" style="--c:#e2e8f0">REPO</span> GitHub project</li>
+                            </ul>
+                            <button type="button" class="mbtn primary" data-action="back">◀ BACK</button>
+                        </div>
+
+                        <!-- pause -->
+                        <div class="ov ov-panel" id="ovPause" hidden>
+                            <h2 class="ov-h big">PAUSED</h2>
+                            <div class="t-menu">
+                                <button type="button" class="mbtn primary" data-action="resume">▶ RESUME</button>
+                                <a class="mbtn" href="#manual">☰ READ THE CV</a>
+                                <button type="button" class="mbtn" data-action="quit">✕ QUIT TO TITLE</button>
+                            </div>
+                        </div>
+
+                        <!-- stage clear (filled by script) -->
+                        <div class="ov ov-card" id="ovClear" hidden aria-live="polite"></div>
+
+                        <!-- game over -->
+                        <div class="ov ov-panel" id="ovOver" hidden>
+                            <h2 class="ov-h big danger">GAME OVER</h2>
+                            <p class="ov-p">UPTIME: 0% · <span id="overScore">0</span> PTS</p>
+                            <div class="name-entry" id="overEntry" hidden>
+                                <label for="overInitials">NEW HIGH SCORE! INITIALS</label>
+                                <input id="overInitials" class="initials" maxlength="3" autocomplete="off" spellcheck="false">
+                            </div>
+                            <p class="ov-p">CONTINUE?</p>
+                            <div class="t-menu">
+                                <button type="button" class="mbtn primary" data-action="continue">▶ YES — RETRY STAGE</button>
+                                <button type="button" class="mbtn" data-action="giveup">✕ NO</button>
+                            </div>
+                        </div>
+
+                        <!-- ending (filled by script) -->
+                        <div class="ov ov-card ov-end" id="ovEnd" hidden></div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <span class="contact-ico">📍</span>
-                    <div><span class="mono c-label">location</span>
-                    <span>Arendal, Norway</span></div>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-ico">⚡</span>
-                    <div><span class="mono c-label">response_time</span>
-                    <span>Typically within 24 hours</span></div>
-                </div>
-                <div class="socials">
-                    <a href="https://github.com/jtg86" target="_blank" rel="noreferrer" class="social-btn mono">GitHub ↗</a>
-                    <a href="https://www.linkedin.com/in/jan-tommy-zonneveld-25604b83/" target="_blank" rel="noreferrer" class="social-btn mono">LinkedIn ↗</a>
+
+                <div class="deck">
+                    <div class="stick" aria-hidden="true"><span></span></div>
+                    <div class="deck-btns">
+                        <button type="button" class="abtn a-pause" id="pauseBtn" aria-label="Pause (P)"><span>❚❚</span><small>PAUSE</small></button>
+                        <button type="button" class="abtn a-bomb" id="bombBtn" aria-label="terraform destroy — bomb (X)"><span id="bombCount">×2</span><small>DESTROY</small></button>
+                    </div>
                 </div>
             </div>
-            <div class="contact-cta reveal">
-                <div class="cta-eyes" aria-hidden="true"><span class="g-eye"><span class="pupil"></span></span><span class="g-eye"><span class="pupil"></span></span></div>
-                <p class="mono cta-line">$ mail -s "Let's talk" jan_tommy_g@hotmail.com</p>
-                <p>No forms, no spam — just send me an email and I'll usually
-                   get back to you within 24 hours.</p>
-                <a href="mailto:jan_tommy_g@hotmail.com?subject=Let's%20talk" class="btn btn-primary btn-big">✉️ Send me an email</a>
+
+            <aside class="side side-right">
+                <div class="panel now-card" id="nowCard">
+                    <p class="panel-tag">NOW PLAYING</p>
+                    <p class="now-stage" id="nowStage">INSERT COIN</p>
+                    <h2 class="now-role" id="nowRole">A career in 5 stages</h2>
+                    <p class="now-org" id="nowOrg">From helpdesk apprentice to Azure OpenAI.</p>
+                    <ol class="now-track" id="nowTrack" aria-label="Career stages">
+                        <li><span>1</span><span>HELPDESK</span><em>2004–06</em></li>
+                        <li><span>2</span><span>SALES</span><em>2008–19</em></li>
+                        <li><span>3</span><span>FIBER</span><em>2019–21</em></li>
+                        <li><span>4</span><span>FAGSKOLE</span><em>2024</em></li>
+                        <li><span>5</span><span>CLOUD &amp; AI</span><em>NOW</em></li>
+                    </ol>
+                </div>
+                <div class="panel loot-card">
+                    <p class="panel-tag">LOOT LOG <span id="lootCount"></span></p>
+                    <ol class="loot-list" id="lootList">
+                        <li class="loot-empty">Catch skill chips to fill the log…</li>
+                    </ol>
+                </div>
+            </aside>
+        </section>
+
+        <!-- ============ THE CV — "operator's manual" ============ -->
+        <section class="manual" id="manual" aria-labelledby="manualTitle">
+            <header class="m-head">
+                <p class="m-tag">OPERATOR'S MANUAL · PLAYER 1 · CV</p>
+                <h2 id="manualTitle">Jan Tommy Gustavsen Zonneveld</h2>
+                <p class="m-sub">IT Operations &amp; Cloud Engineer · Arendal, Norway · <span class="ok">● Open to opportunities</span></p>
+                <div class="m-lead">
+                    <p>
+                        IT operations specialist with a higher vocational degree in IT operations
+                        (120 ECTS, NQF level 5.2) and hands-on experience across Microsoft&nbsp;365,
+                        Entra&nbsp;ID, Azure, automation, infrastructure, security and user support.
+                        At IKT Agder I support several municipalities — and a growing share of my time
+                        goes into <strong>building secure AI solutions on Azure OpenAI</strong>:
+                        retrieval-augmented generation with Azure AI Search, security trimming through
+                        Entra ID groups, and infrastructure managed end-to-end with Terraform.
+                    </p>
+                    <p>
+                        Before IT operations I spent years close to users and hardware — helpdesk
+                        apprentice, key account manager, B2B advisor, installer, PC/mobile repair and
+                        fiber technician. That gives me a strong practical understanding and the ability
+                        to explain complex technical topics in plain language. I care about doing AI right:
+                        grounded answers with source citations, evaluation and red-teaming before
+                        production, and governance and privacy before technology — especially in the
+                        public sector.
+                    </p>
+                </div>
+                <div class="m-actions">
+                    <a class="pbtn" href="mailto:jan_tommy_g@hotmail.com?subject=Let's%20talk">✉ jan_tommy_g@hotmail.com</a>
+                    <a class="pbtn" href="https://www.linkedin.com/in/jan-tommy-zonneveld-25604b83/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+                    <a class="pbtn" href="https://github.com/jtg86" target="_blank" rel="noreferrer">GitHub ↗</a>
+                    <button type="button" class="pbtn js-only" id="printBtn">⎙ Print / PDF</button>
+                    <a class="pbtn pbtn-play js-only" href="#top">▶ Back to the game</a>
+                </div>
+            </header>
+
+            <!-- Career: each .stage maps to a level in the game (data-stage) -->
+            <div class="m-block" id="career">
+                <h3 class="m-h">STAGE SELECT <small>Career</small></h3>
+                <ol class="stages">
+                    <li class="stage" data-stage="5">
+                        <div class="stage-head"><span class="stage-no">STAGE 5</span><span class="stage-name">CLOUD &amp; AI</span><span class="stage-when">NOW</span></div>
+                        <article class="job">
+                            <h4>IT Operations &amp; User Support — Microsoft 365, Entra ID &amp; Azure AI</h4>
+                            <p class="job-org">IKT Agder · current</p>
+                            <ul>
+                                <li>User support and user-facing IT services for several municipalities</li>
+                                <li>Troubleshooting in Microsoft 365; identity &amp; access management in Microsoft Entra ID</li>
+                                <li>Building AI assistants on Azure OpenAI — RAG with Azure AI Search, security trimming via Entra ID groups, infrastructure in Terraform</li>
+                                <li>Improving knowledge bases, documentation and integrations — the link between daily operations and long-term technical development</li>
+                            </ul>
+                        </article>
+                        <article class="job">
+                            <h4>Teacher Assistant — Infrastructure as Code</h4>
+                            <p class="job-org">TISIP Fagskole · Feb 2024 – present</p>
+                            <ul>
+                                <li>Guidance and academic support for students</li>
+                                <li>Assessment and follow-up of Infrastructure as Code assignments</li>
+                            </ul>
+                        </article>
+                        <button type="button" class="play-stage js-only" data-stage="5">▶ PLAY STAGE 5</button>
+                    </li>
+
+                    <li class="stage" data-stage="4">
+                        <div class="stage-head"><span class="stage-no">STAGE 4</span><span class="stage-name">FAGSKOLE</span><span class="stage-when">CLASS OF 2024</span></div>
+                        <article class="job">
+                            <h4>Higher Vocational Degree in IT Operations — 120 ECTS</h4>
+                            <p class="job-org">TISIP Fagskole · completed spring 2024 · NQF level 5.2</p>
+                            <ul>
+                                <li>Grade A in Python, Java, PHP, Linux, PowerShell automation, Office 365, Microsoft 365 for system administrators, cybersecurity &amp; ethical hacking — and the final project (12 ECTS)</li>
+                                <li>Grade B in Azure, Windows Server, Infrastructure as Code, data communication &amp; infrastructure, digital security and ITIL 4</li>
+                                <li>Plan, install, operate and troubleshoot physical, virtual and cloud solutions — and automate them</li>
+                            </ul>
+                        </article>
+                        <button type="button" class="play-stage js-only" data-stage="4">▶ PLAY STAGE 4</button>
+                    </li>
+
+                    <li class="stage" data-stage="3">
+                        <div class="stage-head"><span class="stage-no">STAGE 3</span><span class="stage-name">FIBER</span><span class="stage-when">2019 – 2021</span></div>
+                        <article class="job">
+                            <h4>Fiber Technician</h4>
+                            <p class="job-org">New Connection · Jun 2019 – May 2021</p>
+                            <ul>
+                                <li>Installation, blowing and splicing of fiber</li>
+                                <li>Operation and documentation of fiber networks</li>
+                            </ul>
+                        </article>
+                        <button type="button" class="play-stage js-only" data-stage="3">▶ PLAY STAGE 3</button>
+                    </li>
+
+                    <li class="stage" data-stage="2">
+                        <div class="stage-head"><span class="stage-no">STAGE 2</span><span class="stage-name">SALES &amp; SERVICE</span><span class="stage-when">2008 – 2019</span></div>
+                        <article class="job">
+                            <h4>Sales Associate</h4>
+                            <p class="job-org">Power · Mar 2018 – May 2019</p>
+                            <ul><li>Sales of IT equipment, mobile and electronics; customer guidance and technical advice</li></ul>
+                        </article>
+                        <article class="job">
+                            <h4>Installer / PC Technician</h4>
+                            <p class="job-org">Terjesen Elektronikk AS · Aug 2015 – May 2017</p>
+                            <ul><li>Installation of networks, fiber, satellite and surveillance; PC and mobile repair</li></ul>
+                        </article>
+                        <article class="job">
+                            <h4>B2B Advisor</h4>
+                            <p class="job-org">Telehuset KP Teknikk AS · Apr 2013 – Feb 2014</p>
+                            <ul><li>Sales, advisory and installation of ICT solutions for businesses</li></ul>
+                        </article>
+                        <article class="job">
+                            <h4>Store Manager / Key Account Manager</h4>
+                            <p class="job-org">PS.no · 2008 – 2012</p>
+                            <ul><li>Responsible for business customers, store operations and larger deliveries</li></ul>
+                        </article>
+                        <button type="button" class="play-stage js-only" data-stage="2">▶ PLAY STAGE 2</button>
+                    </li>
+
+                    <li class="stage" data-stage="1">
+                        <div class="stage-head"><span class="stage-no">STAGE 1</span><span class="stage-name">HELPDESK</span><span class="stage-when">2004 – 2006</span></div>
+                        <article class="job">
+                            <h4>IT Apprentice</h4>
+                            <p class="job-org">UECC · 2004 – 2006</p>
+                            <ul><li>Helpdesk, support and maintenance of IT systems</li></ul>
+                        </article>
+                        <button type="button" class="play-stage js-only" data-stage="1">▶ PLAY STAGE 1</button>
+                    </li>
+                </ol>
             </div>
-        </div>
-    </section>
 
-    <!-- Peeking creature (bottom-right) -->
-    <div class="peeker" id="peeker" aria-hidden="true">
-        <div class="peeker-body">
-            <div class="g-eye"><span class="pupil"></span></div>
-            <div class="g-eye"><span class="pupil"></span></div>
-        </div>
-        <div class="peeker-hand h1"></div>
-        <div class="peeker-hand h2"></div>
-    </div>
+            <!-- Skills -->
+            <div class="m-block" id="skills">
+                <h3 class="m-h">PLAYER STATS <small>Skills</small></h3>
+                <div class="stat-grid">
+                    <div class="stat-group">
+                        <h4>AI Engineering</h4>
+                        <dl>
+                            <div class="stat-row" style="--v:9"><dt>Azure OpenAI &amp; AI Foundry</dt><dd><span class="bar"></span><span class="lv">LV 9</span></dd></div>
+                            <div class="stat-row" style="--v:8.5"><dt>RAG &amp; Azure AI Search</dt><dd><span class="bar"></span><span class="lv">LV 8</span></dd></div>
+                            <div class="stat-row" style="--v:8.5"><dt>MCP &amp; AI agents</dt><dd><span class="bar"></span><span class="lv">LV 8</span></dd></div>
+                            <div class="stat-row" style="--v:8"><dt>LLM evaluation &amp; red-teaming</dt><dd><span class="bar"></span><span class="lv">LV 8</span></dd></div>
+                        </dl>
+                    </div>
+                    <div class="stat-group">
+                        <h4>Cloud &amp; Infrastructure</h4>
+                        <dl>
+                            <div class="stat-row" style="--v:9"><dt>Microsoft Azure</dt><dd><span class="bar"></span><span class="lv">LV 9</span></dd></div>
+                            <div class="stat-row" style="--v:8.5"><dt>Terraform / IaC</dt><dd><span class="bar"></span><span class="lv">LV 8</span></dd></div>
+                            <div class="stat-row" style="--v:9"><dt>Windows Server</dt><dd><span class="bar"></span><span class="lv">LV 9</span></dd></div>
+                            <div class="stat-row" style="--v:8"><dt>Linux</dt><dd><span class="bar"></span><span class="lv">LV 8</span></dd></div>
+                        </dl>
+                    </div>
+                    <div class="stat-group">
+                        <h4>Automation &amp; Microsoft 365</h4>
+                        <dl>
+                            <div class="stat-row" style="--v:9.5"><dt>PowerShell automation</dt><dd><span class="bar"></span><span class="lv">LV 9</span></dd></div>
+                            <div class="stat-row" style="--v:9.5"><dt>Microsoft 365 &amp; Entra ID</dt><dd><span class="bar"></span><span class="lv">LV 9</span></dd></div>
+                            <div class="stat-row" style="--v:8"><dt>GitHub Actions / DevOps</dt><dd><span class="bar"></span><span class="lv">LV 8</span></dd></div>
+                            <div class="stat-row" style="--v:7.5"><dt>Docker &amp; containers</dt><dd><span class="bar"></span><span class="lv">LV 7</span></dd></div>
+                        </dl>
+                    </div>
+                    <div class="stat-group">
+                        <h4>Programming &amp; Security</h4>
+                        <dl>
+                            <div class="stat-row" style="--v:8.5"><dt>Python</dt><dd><span class="bar"></span><span class="lv">LV 8</span></dd></div>
+                            <div class="stat-row" style="--v:7"><dt>Java</dt><dd><span class="bar"></span><span class="lv">LV 7</span></dd></div>
+                            <div class="stat-row" style="--v:6.5"><dt>PHP</dt><dd><span class="bar"></span><span class="lv">LV 6</span></dd></div>
+                            <div class="stat-row" style="--v:8"><dt>Security &amp; ethical hacking</dt><dd><span class="bar"></span><span class="lv">LV 8</span></dd></div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
 
-    <!-- ============ FOOTER ============ -->
+            <!-- Certifications -->
+            <div class="m-block" id="certs">
+                <h3 class="m-h">ACHIEVEMENTS <small>Certifications &amp; courses</small></h3>
+                <div class="ach-grid">
+                    <div class="ach-group">
+                        <h4><span class="chip" style="--c:#a3e635">AI</span> AI &amp; agents</h4>
+                        <ul>
+                            <li>AI-3016: Develop Generative AI Apps in Azure AI Foundry <span>Microsoft · 2026</span></li>
+                            <li>AI-3026: Develop AI Agents on Azure <span>Microsoft</span></li>
+                            <li>Introduction to Model Context Protocol <span>Anthropic</span></li>
+                            <li>Claude Code in Action <span>Anthropic</span></li>
+                            <li>Career Essentials in Generative AI <span>Microsoft &amp; LinkedIn · 2024</span></li>
+                            <li>Microsoft Copilot for Productivity <span>Microsoft &amp; LinkedIn</span></li>
+                            <li>Build Your Generative AI Productivity Skills <span>Microsoft &amp; LinkedIn · 2024</span></li>
+                        </ul>
+                    </div>
+                    <div class="ach-group">
+                        <h4><span class="chip" style="--c:#60a5fa">AZ</span> Cloud &amp; identity</h4>
+                        <ul>
+                            <li>AZ-104: Prerequisites for Azure Administrators <span>Microsoft</span></li>
+                            <li>Azure Identity and Networking Essentials <span>Microsoft</span></li>
+                            <li>Managing Identity Services using AD DS and Microsoft Entra <span>Microsoft</span></li>
+                            <li>Google IT Support <span>Google · 2023</span></li>
+                        </ul>
+                    </div>
+                    <div class="ach-group">
+                        <h4><span class="chip" style="--c:#2dd4bf">SEC</span> Security</h4>
+                        <ul>
+                            <li>Certified in Cybersecurity (CC) <span>ISC2 · 2024</span></li>
+                            <li>Career Essentials in Cybersecurity <span>Microsoft &amp; LinkedIn</span></li>
+                        </ul>
+                    </div>
+                    <div class="ach-group">
+                        <h4><span class="chip" style="--c:#c084fc">OPS</span> DevOps &amp; networking</h4>
+                        <ul>
+                            <li>Docker Foundations Professional Certificate <span>Docker</span></li>
+                            <li>Career Essentials in GitHub Professional Certificate <span>GitHub &amp; LinkedIn · 2024</span></li>
+                            <li>Network Automation Professional Certificate <span>Arista Networks</span></li>
+                            <li>Networking Basics <span>Cisco · 2022</span></li>
+                            <li>Python Essentials 1 <span>Cisco · 2022</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="m-more"><a href="https://www.linkedin.com/in/jan-tommy-zonneveld-25604b83/" target="_blank" rel="noreferrer">All 34+ certifications and courses on LinkedIn ↗</a></p>
+            </div>
+
+            <!-- Projects -->
+            <div class="m-block" id="projects">
+                <h3 class="m-h">BONUS LEVELS <small>Projects</small></h3>
+                <div class="proj-grid">
+                    <article class="proj">
+                        <span class="chip" style="--c:#c084fc">TF</span>
+                        <h4>Azure AI Terraform Demo</h4>
+                        <p>Production-style Terraform for an Azure OpenAI-backed API with App Service, Key Vault, managed identity and monitoring — CI/CD with a Trivy security scan.</p>
+                        <p class="proj-tags">Terraform · Azure · GitHub Actions</p>
+                        <a href="https://github.com/jtg86/azure-ai-terraform-demo" target="_blank" rel="noreferrer">code ↗</a>
+                    </article>
+                    <article class="proj">
+                        <span class="chip" style="--c:#60a5fa">PS</span>
+                        <h4>M365 Admin Tool</h4>
+                        <p>Desktop GUI built with PowerShell 7 and WPF for managing shared mailboxes and distribution groups in Microsoft 365 / Exchange Online.</p>
+                        <p class="proj-tags">PowerShell · Microsoft Graph · Exchange Online</p>
+                        <a href="https://github.com/jtg86/365SharedMailandDistributionGroupsTool" target="_blank" rel="noreferrer">code ↗</a>
+                    </article>
+                    <article class="proj">
+                        <span class="chip" style="--c:#a3e635">ML</span>
+                        <h4>Ticket AI Classifier</h4>
+                        <p>Machine learning model that classifies and routes IT support tickets, cutting manual triage on the service desk.</p>
+                        <p class="proj-tags">Python · scikit-learn · NLP</p>
+                        <a href="https://github.com/jtg86/ticket-ai-classifier" target="_blank" rel="noreferrer">code ↗</a>
+                    </article>
+                    <article class="proj">
+                        <span class="chip" style="--c:#fb923c">DB</span>
+                        <h4>NilexViewer</h4>
+                        <p>Flask app for searching and viewing support cases with an Azure Cosmos DB backend — cloud-native design for service management data.</p>
+                        <p class="proj-tags">Flask · Azure Cosmos DB · Terraform</p>
+                        <a href="https://github.com/jtg86/NilexViewer" target="_blank" rel="noreferrer">code ↗</a>
+                    </article>
+                    <article class="proj">
+                        <span class="chip" style="--c:#fde047">3D</span>
+                        <h4>Arendal Museum 3D</h4>
+                        <p>Walkable 3D photo museum in Three.js — a procedurally generated church with 76 public-domain photos of Arendal from the National Library of Norway's open API.</p>
+                        <p class="proj-tags">Three.js · WebGL · National Library API</p>
+                        <a href="/museum/" target="_blank" rel="noreferrer">live demo ↗</a>
+                        <a href="https://github.com/jtg86/ArendalMuseum" target="_blank" rel="noreferrer">code ↗</a>
+                    </article>
+                </div>
+                <p class="m-more"><a href="https://github.com/jtg86?tab=repositories" target="_blank" rel="noreferrer">All repositories on GitHub ↗</a></p>
+            </div>
+
+            <!-- Side quests -->
+            <div class="m-block m-block-split">
+                <div>
+                    <h3 class="m-h">SIDE QUESTS <small>Volunteering</small></h3>
+                    <ul class="plain">
+                        <li>IT group volunteer — Canal Street <span>2023</span></li>
+                        <li>Volunteer — Hove Festival</li>
+                    </ul>
+                </div>
+                <div id="contact">
+                    <h3 class="m-h">CONTINUE? <small>Contact</small></h3>
+                    <p>Looking for someone in IT operations, cloud, automation or applied AI? Send an email — I usually reply within 24 hours.</p>
+                    <div class="m-actions">
+                        <a class="pbtn pbtn-play" href="mailto:jan_tommy_g@hotmail.com?subject=Let's%20talk">✉ Insert coin: send an email</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
-        <div class="walker" id="walker" aria-hidden="true">
-            <div class="walker-body">
-                <div class="g-eye sm"><span class="pupil"></span></div>
-                <div class="g-eye sm"><span class="pupil"></span></div>
-            </div>
-            <div class="walker-leg leg1"></div>
-            <div class="walker-leg leg2"></div>
-        </div>
-        <div class="footer-inner">
-            <span class="nav-logo mono">&lt;JanTommy<span class="accent">/</span>&gt;</span>
-            <p>IT operations, cloud &amp; automation that create real value.</p>
-            <p class="mono footer-quote">"Automate the boring stuff, focus on what matters."</p>
-            <p class="footer-copy">© 2026 Jan Tommy Gustavsen Zonneveld. All rights reserved.</p>
-        </div>
+        <p class="brand">&lt;JanTommy<span>/</span>&gt;</p>
+        <p class="footer-quote">"Automate the boring stuff, focus on what matters."</p>
+        <p>© 2026 Jan Tommy Gustavsen Zonneveld · UPTIME is an original game, made with plain JavaScript and a <code>&lt;canvas&gt;</code>.</p>
     </footer>
 
     <script src="script.js"></script>
